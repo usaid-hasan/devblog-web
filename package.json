@@ -1,7 +1,7 @@
 {
   "name": "devblog-web",
   "description": "A react app for sharing posts and code snippets",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "author": "Usaid Hasan <usaid-hasan@outlook.com>",
   "repository": "github:usaid-hasan/devblog-web",
@@ -20,6 +20,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react-swc": "^3.4.1",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
     "vite": "^4.5.0"
   }
 }
