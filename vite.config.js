@@ -16,7 +16,7 @@ export default {
   },
   resolve: {
     alias: [
-      { 
+      {
         find: /^@\/(?<path>.*)/,
         replacement: resolve(dirname(fileURLToPath(import.meta.url)), './src/$1'),
       },
