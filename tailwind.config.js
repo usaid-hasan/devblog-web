@@ -1,6 +1,7 @@
 /* eslint-disable quote-props */
 import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
+import typographyPlugin from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -39,9 +40,26 @@ export default {
         'spinback': 'rotate 6s linear infinite',
         'inflate': 'inflate 1.2s infinite',
       },
+      typography: (theme) => ({
+        'zinc': {
+          css: {
+            '--tw-prose-body': theme('colors.zinc.700'),
+            '--tw-prose-headings': theme('colors.zinc.700'),
+            '--tw-prose-bold': theme('colors.zinc.700'),
+            '--tw-prose-pre-code': theme('colors.zinc.700'),
+            '--tw-prose-pre-bg': theme('colors.zinc.200'),
+            '--tw-prose-invert-body': theme('colors.zinc.200'),
+            '--tw-prose-invert-headings': theme('colors.zinc.200'),
+            '--tw-prose-invert-bold': theme('colors.zinc.200'),
+            '--tw-prose-invert-hr': theme('colors.zinc.600'),
+            '--tw-prose-invert-quote-borders': theme('colors.zinc.600'),
+          },
+        },
+      }),
     },
   },
   plugins: [
+    typographyPlugin,
     plugin(({ addVariant, matchUtilities }) => {
       addVariant('mouse', '@media (hover: hover)');
       matchUtilities({

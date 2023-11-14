@@ -1,10 +1,11 @@
-import { ApolloClient, InMemoryCache, makeVar } from '@apollo/client';
+import { ApolloClient, makeVar } from '@apollo/client';
 import { GET_ME } from '@/gql';
+import cache from './cache';
 import link from './link';
 
 const client = new ApolloClient({
   link,
-  cache: new InMemoryCache(),
+  cache,
   connectToDevTools: import.meta.env.DEV,
 });
 
