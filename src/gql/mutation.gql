@@ -1,0 +1,69 @@
+#import "./fragment.gql"
+
+mutation SignIn($username: String!, $password: String!, $rememberme: String) {
+  signIn(username: $username, password: $password, rememberme: $rememberme) {
+    ...MeFragment
+    likedPosts
+  }
+}
+
+mutation SignUp($username: String!, $email: String!, $password: String!, $rememberme: String) {
+  signUp(username: $username, email: $email, password: $password, rememberme: $rememberme) {
+    ...MeFragment
+    likedPosts
+  }
+}
+
+mutation SignOut {
+  signOut
+}
+
+mutation ForgotPassword($email: String!) {
+  forgotPassword(email: $email)
+}
+
+mutation ResetPassword($resetToken: String!, $password: String!) {
+  resetPassword(resetToken: $resetToken, password: $password) {
+    ...MeFragment
+    likedPosts
+  }
+}
+
+mutation UpdatePassword($currentPassword: String!, $newPassword: String!) {
+  updatePassword(currentPassword: $currentPassword, newPassword: $newPassword) {
+    ...MeFragment
+  }
+}
+
+mutation UpdateUser($email: String!) {
+  updateUser(email: $email) {
+    ...MeFragment
+  }
+}
+
+mutation DeleteUser($password: String!) {
+  deleteUser(password: $password)
+}
+
+mutation CreatePost($content: String!) {
+  createPost(content: $content) {
+    ...PostFragment
+  }
+}
+
+mutation UpdatePost($id: ObjectID!, $content: String!) {
+  updatePost(id: $id, content: $content) {
+    ...PostFragment
+  }
+}
+
+mutation DeletePost($id: ObjectID!) {
+  deletePost(id: $id)
+}
+
+mutation ToggleLike($id: ObjectID!) {
+  toggleLike(id: $id) {
+    likesCount
+    liked
+  }
+}

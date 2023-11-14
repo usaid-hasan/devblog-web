@@ -17,7 +17,7 @@ export default [
     rules: {
       ...eslintRules.default,
       ...eslintRules.importPlugin,
-      'import/extensions': ['error', 'ignorePackages', { js: 'never', jsx: 'never' }],
+      'import/extensions': ['error', 'ignorePackages', { js: 'never', jsx: 'never', gql: 'never', json: 'never' }],
     },
     languageOptions: {
       parserOptions: {
@@ -27,10 +27,11 @@ export default [
     settings: {
       'import/extensions': ['.js', '.jsx'],
       'import/parsers': { espree: ['.js', '.jsx'] },
+      'import/ignore': ['gql$'],
       'import/resolver': {
         'eslint-import-resolver-custom-alias': {
-          alias: { '@': './src' },
-          extensions: ['.js', '.jsx'],
+          alias: { '@/mocks': './mocks', '@': './src' },
+          extensions: ['.js', '.jsx', '.json', '.gql'],
         },
       },
     },
@@ -61,6 +62,14 @@ export default [
     },
     settings: {
       'react': { version: 'detect' },
+    },
+  },
+  {
+    files: ['mocks/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
     },
   },
 ];

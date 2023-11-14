@@ -4,11 +4,15 @@ import { env } from 'node:process';
 
 import { splitVendorChunkPlugin } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import graphql from '@rollup/plugin-graphql';
+
+const dir = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('vite').UserConfig} */
 export default {
   plugins: [
     react(),
+    graphql(),
     splitVendorChunkPlugin(),
   ],
   define: {
@@ -16,11 +20,9 @@ export default {
   },
   resolve: {
     alias: [
-      {
-        find: /^@\/(?<path>.*)/,
-        replacement: resolve(dirname(fileURLToPath(import.meta.url)), './src/$1'),
-      },
+      { find: /^@\/mocks(?<path>.*)/, replacement: resolve(dir, './mocks/$1') },
+      { find: /^@\/(?<path>.*)/, replacement: resolve(dir, './src/$1') },
     ],
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.gql'],
   },
 };

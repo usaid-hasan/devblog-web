@@ -1,0 +1,37 @@
+#import "./fragment.gql"
+
+query GetPost($id: ObjectID!) {
+  post(id: $id) {
+    ...PostFragment
+  }
+}
+
+query GetPostFeed($cursor: ObjectID) {
+  postFeed(cursor: $cursor) {
+    results
+    cursor
+    hasNextPage
+    posts {
+      ...PostFragment
+    }
+  }
+}
+
+query GetMe {
+  me {
+    ...MeFragment
+    likedPosts
+  }
+}
+
+query GetMyLikedPosts {
+  myLikedPosts {
+    ...PostFragment
+  }
+}
+
+query GetMyPosts {
+  myPosts {
+    ...PostFragment
+  }
+}

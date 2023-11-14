@@ -1,12 +1,13 @@
 {
   "exclude": ["node_modules", "dist"],
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "mocks/*"],
   "compilerOptions": {
     "moduleResolution": "bundler",
     "module": "ES2022",
     "target": "ES2022",
     "baseUrl": ".",
     "paths": {
+      "@/mocks": ["./mocks/*"],
       "@/*": ["./src/*"]
     },
     "types": ["vite/client"]

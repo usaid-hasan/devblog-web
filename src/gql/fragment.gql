@@ -1,0 +1,18 @@
+fragment PostFragment on Post {
+  id
+  content
+  createdAt
+  likesCount
+  author {
+    id
+    username
+    avatar
+  }
+}
+
+fragment MeFragment on Me {
+  id
+  username
+  email
+  avatar
+}
