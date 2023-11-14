@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .dark:root {
+    color-scheme: dark;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input:autofill::selection,
+  input:-webkit-autofill::selection {
+    -webkit-text-fill-color: theme(textColor.white);
+  }
+
+  input:autofill,
+  input:-webkit-autofill {
+    -webkit-text-fill-color: theme(colors.neutral.700);
+    -webkit-box-shadow: inset 0 0 0 3rem theme(boxShadowColor.yellow.200);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  dialog:focus-visible {
+    outline: theme(outlineWidth.2) solid theme(outlineColor.orange.500);
+  }
+
+  input,
+  textarea {
+    caret-color: theme(caretColor.orange.500);
+  }
+
+  ::selection {
+    color: theme(textColor.white);
+    background-color: theme(backgroundColor.orange.500);
+  }
+}
+
+@layer components {
+  menu a.active,
+  nav a.active {
+    @apply !bg-orange-500 !text-white;
+  }
+
+  .btn {
+    @apply rounded-md bg-orange-500 font-bold text-white shadow-md transition-colors ease-linear focus-visible:outline-offset-2 active:bg-orange-600 mouse:hover:bg-orange-600;
+  }
+
+  .highlight {
+    @apply transition-colors ease-linear active:bg-zinc-200 active:text-orange-400 mouse:hover:bg-zinc-200 dark:active:bg-neutral-500 dark:mouse:hover:bg-neutral-500;
+  }
+}
