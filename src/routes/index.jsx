@@ -14,6 +14,22 @@ export default [
         path: 'post/:id',
         lazy: async () => ({ Component: (await import('@/pages/PostView')).default }),
       },
+      {
+        path: 'signin',
+        lazy: async () => ({ Component: (await import('@/pages/Signin')).default }),
+      },
+      {
+        path: 'signup',
+        lazy: async () => ({ Component: (await import('@/pages/Signup')).default }),
+      },
+      {
+        path: 'forgot-password',
+        lazy: async () => ({ Component: (await import('@/pages/ForgotPassword')).default }),
+      },
+      {
+        path: 'reset-password/:token',
+        lazy: async () => ({ Component: (await import('@/pages/ResetPassword')).default }),
+      },
     ],
   },
 ];
