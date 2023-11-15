@@ -4,6 +4,7 @@ import { useAuth } from '@/hooks';
 import { formatTime, getAvatarUrl } from '@/utils/helpers';
 import LikeBtn from './LikeBtn';
 import PostContent from './PostContent';
+import PostContextMenu from './PostContextMenu';
 
 export default memo(function Post({ post, lastElRef }) {
   const user = useAuth();
@@ -27,6 +28,8 @@ export default memo(function Post({ post, lastElRef }) {
           {formatTime(post.createdAt)}
         </time>
       </header>
+
+      {user?.id === post.author.id && <PostContextMenu id={post.id} />}
 
       <PostContent id={post.id} content={post.content} />
 
