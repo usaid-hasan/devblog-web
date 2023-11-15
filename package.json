@@ -1,7 +1,7 @@
 {
   "name": "devblog-web",
   "description": "A react app for sharing posts and code snippets",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "author": "Usaid Hasan <usaid-hasan@outlook.com>",
   "repository": "github:usaid-hasan/devblog-web",

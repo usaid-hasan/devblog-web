@@ -1,9 +1,13 @@
 import { memo } from 'react';
 import { StarIcon } from '@heroicons/react/24/solid';
+import { useAuth } from '@/hooks';
 import { formatTime, getAvatarUrl } from '@/utils/helpers';
+import LikeBtn from './LikeBtn';
 import PostContent from './PostContent';
 
 export default memo(function Post({ post, lastElRef }) {
+  const user = useAuth();
+
   return (
     <article ref={lastElRef} className="grid grid-cols-[auto_1fr_auto] items-center gap-x-4 gap-y-6 rounded-md border bg-white p-4 shadow-md transition-colors dark:border-zinc-800 dark:bg-neutral-700">
       <div className="h-10 w-10 overflow-hidden rounded-full">
@@ -26,10 +30,15 @@ export default memo(function Post({ post, lastElRef }) {
 
       <PostContent id={post.id} content={post.content} />
 
-      <button type="button" aria-label="toggle-like" disabled className="col-span-2 flex items-center gap-2 justify-self-start rounded-full bg-zinc-100 px-4 py-1 transition-colors dark:bg-neutral-600">
-        <StarIcon className="h-5 w-5 text-orange-500" />
-        <span className="text-xs font-bold">{post.likesCount}</span>
-      </button>
+      {
+        user ?
+          <LikeBtn id={post.id} likesCount={post.likesCount} />
+          :
+          <button type="button" aria-label="toggle-like" disabled className="col-span-2 flex items-center gap-2 justify-self-start rounded-full bg-zinc-100 px-4 py-1 transition-colors dark:bg-neutral-600">
+            <StarIcon className="h-5 w-5 text-orange-500" />
+            <span className="text-xs font-bold">{post.likesCount}</span>
+          </button>
+      }
     </article>
   );
 });
