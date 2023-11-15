@@ -1,6 +1,6 @@
 import { Layout, ErrorBoundary } from '@/components';
 import Home from '@/pages/Home';
-import rootLoader from './loaders';
+import { authLoader, rootLoader } from './loaders';
 
 export default [
   {
@@ -29,6 +29,15 @@ export default [
       {
         path: 'reset-password/:token',
         lazy: async () => ({ Component: (await import('@/pages/ResetPassword')).default }),
+      },
+      {
+        path: 'profile',
+        loader: authLoader,
+        lazy: async () => ({ Component: (await import('@/pages/Profile')).default }),
+        children: [
+          { path: 'posts', lazy: async () => ({ Component: (await import('@/pages/Profile')).MyPosts }) },
+          { path: 'likedPosts', lazy: async () => ({ Component: (await import('@/pages/Profile')).MyLikedPosts }) },
+        ],
       },
     ],
   },

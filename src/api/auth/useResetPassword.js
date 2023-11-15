@@ -11,7 +11,7 @@ export default function useResetPassword(resetToken) {
     onError: (err) => { if (import.meta.env.DEV) console.error(err.message); },
     onCompleted: (data) => {
       getUser({ ...data.resetPassword });
-      navigate('/', { replace: true });
+      navigate('/profile', { replace: true });
     },
   });
 

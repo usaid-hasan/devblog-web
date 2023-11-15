@@ -10,7 +10,7 @@ export default function useSignup() {
     onError: (err) => { if (import.meta.env.DEV) console.error(err.message); },
     onCompleted: (data) => {
       getUser({ ...data.signUp });
-      navigate('/', { replace: true });
+      navigate('/profile', { replace: true });
     },
   });
 
