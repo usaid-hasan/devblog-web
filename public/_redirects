@@ -1,0 +1,4 @@
+# Netlify redirects
+
+/mockServiceWorker.js /index.html 200!
+/* /index.html 200
