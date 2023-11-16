@@ -31,6 +31,11 @@ export default [
         lazy: async () => ({ Component: (await import('@/pages/ResetPassword')).default }),
       },
       {
+        path: 'settings',
+        loader: authLoader,
+        lazy: async () => ({ Component: (await import('@/pages/Settings')).default }),
+      },
+      {
         path: 'submit',
         loader: authLoader,
         lazy: async () => ({ Component: (await import('@/pages/PostSubmit')).default }),

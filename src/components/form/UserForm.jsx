@@ -1,9 +1,11 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '@/hooks';
 import Form from './Form';
 import InputField from './InputField';
 
 export default memo(function UserForm({ formType, formSubmit }) {
+  const user = useAuth();
   let inputFields, btnText;
 
   switch (formType) {
@@ -33,6 +35,23 @@ export default memo(function UserForm({ formType, formSubmit }) {
     case 'reset':
       btnText = 'Reset Password';
       inputFields = <InputField type="password" autoComplete="new-password" placeholder="••••••••" minLength={8} />;
+      break;
+    case 'email':
+      btnText = 'Change email';
+      inputFields = <InputField type="email" placeholder={user.email} />;
+      break;
+    case 'password':
+      btnText = 'Change password';
+      inputFields = (
+        <>
+          <InputField type="password" autoComplete="current-password" name="currentPassword" placeholder="••••••••" minLength={8} label="Current Password" />
+          <InputField type="password" autoComplete="new-password" name="newPassword" placeholder="••••••••" minLength={8} label="New Password" />
+        </>
+      );
+      break;
+    case 'delete':
+      btnText = 'Yes I want to delete my account';
+      inputFields = <InputField type="password" autoComplete="current-password" placeholder="••••••••" minLength={8} />;
       break;
     default:
   }

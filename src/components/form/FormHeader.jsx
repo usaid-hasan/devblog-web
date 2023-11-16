@@ -21,6 +21,18 @@ export default memo(function FormHeader({ formType }) {
       heading = 'Reset your password';
       text = 'Enter the new password for your account.';
       break;
+    case 'email':
+      heading = 'Update your email';
+      text = 'Email address to recover lost or forgotten password.';
+      break;
+    case 'password':
+      heading = 'Update your password';
+      text = 'Provide your current as well as your new password.';
+      break;
+    case 'delete':
+      heading = 'Delete your account';
+      text = 'Once you have deleted your account it cannot be recovered. Are you sure you want to delete it?';
+      break;
     default:
   }
 
