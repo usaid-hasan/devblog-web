@@ -6,7 +6,7 @@ export default function Sidebar() {
 
   return (
     <div className="sticky inset-0 top-24 hidden h-auto w-full flex-col gap-4 lg:flex">
-      <aside className="rounded-md border bg-white text-sm shadow-md transition-colors dark:border-zinc-800 dark:bg-neutral-700">
+      {/* <aside className="rounded-md border bg-white text-sm shadow-md transition-colors dark:border-zinc-800 dark:bg-neutral-700">
         <a href={import.meta.env.VITE_GIT_URL} target="_blank" rel="noreferrer" className="group flex items-center justify-center gap-4 p-4 transition-colors hover:text-lime-600">
           <span className="text-sm font-semibold tracking-wide">Github Repo</span>
           <div className="h-6 w-6 transition ease-out group-hover:scale-125">
@@ -16,7 +16,7 @@ export default function Sidebar() {
             </svg>
           </div>
         </a>
-      </aside>
+      </aside> */}
 
       <footer className="rounded-md border bg-white p-4 text-sm text-zinc-500 shadow-md transition-colors dark:border-zinc-800 dark:bg-neutral-700 dark:text-zinc-300">
         <nav className="mb-4">

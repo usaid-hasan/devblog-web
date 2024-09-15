@@ -15,11 +15,11 @@ export default function Layout({ ErrorBoundary }) {
 
   return (
     <>
-      <aside className="w-[100vw] bg-neutral-800 text-center text-base font-bold text-white lg:hidden">
+      {/* <aside className="w-[100vw] bg-neutral-800 text-center text-base font-bold text-white lg:hidden">
         <a href={import.meta.env.VITE_GIT_URL} target="_blank" rel="noreferrer">
           Github Repo &rarr;
         </a>
-      </aside>
+      </aside> */}
 
       <div className="min-h-screen bg-zinc-100 text-zinc-700 transition-colors dark:bg-neutral-800 dark:text-zinc-100">
         <header className="sticky top-0 z-30 h-16 border-b border-t-2 border-t-orange-500 bg-white/80 shadow-md backdrop-blur-xs transition-colors dark:border-zinc-800 dark:border-t-orange-500 dark:bg-neutral-900/80">
